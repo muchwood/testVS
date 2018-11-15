@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="testModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'test.dbo.Aves' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+        <EntityType Name="Aves">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="waypoint" Type="nvarchar" MaxLength="50" />
+          <Property Name="eventTime" Type="datetime" />
+          <Property Name="資料行 3" Type="nvarchar" MaxLength="50" />
+          <Property Name="vernacularName" Type="nvarchar" MaxLength="50" />
+          <Property Name="individualCount" Type="int" />
+          <Property Name="decimalLatitude" Type="float" />
+          <Property Name="decimalLongitude" Type="float" />
+          <Property Name="detectionDistance" Type="float" />
+          <Property Name="flightHeight" Type="float" />
+          <Property Name="flightDirection" Type="nvarchar" MaxLength="50" />
+          <Property Name="weather" Type="nvarchar" MaxLength="50" />
+          <Property Name="sightability" Type="nvarchar" MaxLength="50" />
+          <Property Name="visibility" Type="nvarchar" MaxLength="50" />
+          <Property Name="behavior" Type="nvarchar" MaxLength="50" />
+          <Property Name="note" Type="nvarchar" MaxLength="50" />
+          <Property Name="observer" Type="nvarchar" MaxLength="50" />
+          <Property Name="noteTaker" Type="nvarchar" MaxLength="50" />
+          <Property Name="photographer" Type="nvarchar" MaxLength="50" />
+          <Property Name="eventDate" Type="datetime" />
+          <Property Name="vessel" Type="nvarchar" MaxLength="50" />
+          <Property Name="route" Type="nvarchar" MaxLength="50" />
+          <Property Name="observingSide" Type="nvarchar" MaxLength="50" />
+          <Property Name="fieldOfVision" Type="nvarchar" MaxLength="50" />
+          <Property Name="lastHighTide" Type="nvarchar" MaxLength="50" />
+          <Property Name="lastLowTide" Type="nvarchar" MaxLength="50" />
+          <Property Name="windForce" Type="nvarchar" MaxLength="50" />
+          <Property Name="windDirection" Type="nvarchar" MaxLength="50" />
+          <Property Name="effort" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Map">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="eventTime" Type="datetime" />
+          <Property Name="eventDate" Type="datetime" />
+          <Property Name="Latitude" Type="float" />
+          <Property Name="Longitude" Type="float" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="testModelStoreContainer">
+          <EntitySet Name="Map" EntityType="Self.Map" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Aves" EntityType="Self.Aves" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Aves].[ID] AS [ID], 
+    [Aves].[waypoint] AS [waypoint], 
+    [Aves].[eventTime] AS [eventTime], 
+    [Aves].[資料行 3] AS [資料行 3], 
+    [Aves].[vernacularName] AS [vernacularName], 
+    [Aves].[individualCount] AS [individualCount], 
+    [Aves].[decimalLatitude] AS [decimalLatitude], 
+    [Aves].[decimalLongitude] AS [decimalLongitude], 
+    [Aves].[detectionDistance] AS [detectionDistance], 
+    [Aves].[flightHeight] AS [flightHeight], 
+    [Aves].[flightDirection] AS [flightDirection], 
+    [Aves].[weather] AS [weather], 
+    [Aves].[sightability] AS [sightability], 
+    [Aves].[visibility] AS [visibility], 
+    [Aves].[behavior] AS [behavior], 
+    [Aves].[note] AS [note], 
+    [Aves].[observer] AS [observer], 
+    [Aves].[noteTaker] AS [noteTaker], 
+    [Aves].[photographer] AS [photographer], 
+    [Aves].[eventDate] AS [eventDate], 
+    [Aves].[vessel] AS [vessel], 
+    [Aves].[route] AS [route], 
+    [Aves].[observingSide] AS [observingSide], 
+    [Aves].[fieldOfVision] AS [fieldOfVision], 
+    [Aves].[lastHighTide] AS [lastHighTide], 
+    [Aves].[lastLowTide] AS [lastLowTide], 
+    [Aves].[windForce] AS [windForce], 
+    [Aves].[windDirection] AS [windDirection], 
+    [Aves].[effort] AS [effort]
+    FROM [dbo].[Aves] AS [Aves]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="testModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Aves">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="waypoint" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="eventTime" Type="DateTime" Precision="3" />
+          <Property Name="資料行_3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="vernacularName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="individualCount" Type="Int32" />
+          <Property Name="decimalLatitude" Type="Double" />
+          <Property Name="decimalLongitude" Type="Double" />
+          <Property Name="detectionDistance" Type="Double" />
+          <Property Name="flightHeight" Type="Double" />
+          <Property Name="flightDirection" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="weather" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sightability" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="visibility" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="behavior" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="note" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="observer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="noteTaker" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="photographer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="eventDate" Type="DateTime" Precision="3" />
+          <Property Name="vessel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="route" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="observingSide" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fieldOfVision" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="lastHighTide" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="lastLowTide" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="windForce" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="windDirection" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="effort" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="testEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Aves" EntityType="Self.Aves" />
+          <EntitySet Name="Map" EntityType="testModel.Map" />
+        </EntityContainer>
+        <EntityType Name="Map">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="eventTime" Type="DateTime" Precision="3" />
+          <Property Name="eventDate" Type="DateTime" Precision="3" />
+          <Property Name="Latitude" Type="Double" />
+          <Property Name="Longitude" Type="Double" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="testModelStoreContainer" CdmEntityContainer="testEntities">
+          <EntitySetMapping Name="Aves">
+            <EntityTypeMapping TypeName="testModel.Aves">
+              <MappingFragment StoreEntitySet="Aves">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="waypoint" ColumnName="waypoint" />
+                <ScalarProperty Name="eventTime" ColumnName="eventTime" />
+                <ScalarProperty Name="資料行_3" ColumnName="資料行 3" />
+                <ScalarProperty Name="vernacularName" ColumnName="vernacularName" />
+                <ScalarProperty Name="individualCount" ColumnName="individualCount" />
+                <ScalarProperty Name="decimalLatitude" ColumnName="decimalLatitude" />
+                <ScalarProperty Name="decimalLongitude" ColumnName="decimalLongitude" />
+                <ScalarProperty Name="detectionDistance" ColumnName="detectionDistance" />
+                <ScalarProperty Name="flightHeight" ColumnName="flightHeight" />
+                <ScalarProperty Name="flightDirection" ColumnName="flightDirection" />
+                <ScalarProperty Name="weather" ColumnName="weather" />
+                <ScalarProperty Name="sightability" ColumnName="sightability" />
+                <ScalarProperty Name="visibility" ColumnName="visibility" />
+                <ScalarProperty Name="behavior" ColumnName="behavior" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="observer" ColumnName="observer" />
+                <ScalarProperty Name="noteTaker" ColumnName="noteTaker" />
+                <ScalarProperty Name="photographer" ColumnName="photographer" />
+                <ScalarProperty Name="eventDate" ColumnName="eventDate" />
+                <ScalarProperty Name="vessel" ColumnName="vessel" />
+                <ScalarProperty Name="route" ColumnName="route" />
+                <ScalarProperty Name="observingSide" ColumnName="observingSide" />
+                <ScalarProperty Name="fieldOfVision" ColumnName="fieldOfVision" />
+                <ScalarProperty Name="lastHighTide" ColumnName="lastHighTide" />
+                <ScalarProperty Name="lastLowTide" ColumnName="lastLowTide" />
+                <ScalarProperty Name="windForce" ColumnName="windForce" />
+                <ScalarProperty Name="windDirection" ColumnName="windDirection" />
+                <ScalarProperty Name="effort" ColumnName="effort" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Map">
+            <EntityTypeMapping TypeName="testModel.Map">
+              <MappingFragment StoreEntitySet="Map">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="eventDate" ColumnName="eventDate" />
+                <ScalarProperty Name="eventTime" ColumnName="eventTime" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

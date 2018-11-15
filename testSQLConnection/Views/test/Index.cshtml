@@ -1,0 +1,195 @@
+﻿@model IEnumerable<testSQLConnection.Models.Aves>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.waypoint)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.eventTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.資料行_3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.vernacularName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.individualCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.decimalLatitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.decimalLongitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.detectionDistance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.flightHeight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.flightDirection)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.weather)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sightability)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.visibility)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.behavior)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.note)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.observer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.noteTaker)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.photographer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.eventDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.vessel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.route)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.observingSide)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fieldOfVision)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastHighTide)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastLowTide)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.windForce)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.windDirection)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.effort)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.waypoint)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.eventTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.資料行_3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.vernacularName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.individualCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.decimalLatitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.decimalLongitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.detectionDistance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.flightHeight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.flightDirection)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.weather)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sightability)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.visibility)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.behavior)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.note)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.observer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.noteTaker)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.photographer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.eventDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.vessel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.route)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.observingSide)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fieldOfVision)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastHighTide)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastLowTide)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.windForce)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.windDirection)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.effort)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

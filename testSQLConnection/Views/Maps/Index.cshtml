@@ -1,0 +1,64 @@
+﻿@model IEnumerable<testSQLConnection.Models.Map>
+
+@{
+    Layout = null;
+}
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+      integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+      crossorigin="" />
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+        integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+        crossorigin=""></script>
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<div id="map" style="height: 900px; border: 1px solid #AAA;"></div>
+
+<script type="text/javascript">
+
+
+    $(document).ready(function () {
+        var map = L.map('map', {
+
+            center: [24,120],
+            minZoom: 4,
+            zoom: 10
+        });
+        $.ajax({
+            type: "POST",
+            url: '/Maps/GetMap',   
+            success: function (data) {
+                var result = JSON.stringify(data);
+
+                for (var i = 0; i < result.length; ++i) {
+                    var popup = '<b>descriptiom:</b> ' + data[i].Discription +
+                        '<br/><b>Latitude:</b> ' + data[i].Latitude +
+                        '<br/><b>Longitude:</b> ' + data[i].Longitude +
+                        '<br/><a href="https://www.google.com/">google</a>' +
+                        '<br/><b>Location:</b> ' + data[i].Location;
+
+
+                    L.marker([data[i].Latitude, data[i].Longitude])
+                        .bindPopup(popup)
+                        .addTo(map);
+                }
+
+            },
+            error: function (xhr) {
+
+                console.log(xhr.responseText);
+                alert("Error has occurred..");
+            }
+        });
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '<a href="https://www.openstreetmap.org/">OSM</a>',
+            maxZoom: 18,
+        }).addTo(map);
+
+
+    });
+
+</script>
